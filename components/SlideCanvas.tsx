@@ -20,10 +20,17 @@ export const SlideCanvas: React.FC<SlideCanvasProps> = ({ slide, isActive }) => 
     '--primary-color': slide.primaryColor,
     '--secondary-color': slide.secondaryColor,
     '--text-color': slide.textColor,
+    '--grid-color': '#2563EB',
   } as React.CSSProperties;
 
   const logoIndex = slide.logoIndex ?? 0;
   const selectedLogo = LOGO_OPTIONS[logoIndex];
+
+  // Determine highlight tag color based on slide index or content type
+  const getHighlightClass = (index: number) => {
+    const highlights = ['mint', 'purple', 'orange'];
+    return highlights[index % highlights.length];
+  };
 
   return (
     <div
@@ -35,17 +42,23 @@ export const SlideCanvas: React.FC<SlideCanvasProps> = ({ slide, isActive }) => 
       }}
     >
       {/* Decorative Overlays */}
-      <div className="poster-gradient-overlay" style={{ backgroundImage: `linear-gradient(to top, ${slide.backgroundColor}, ${slide.backgroundColor}66, transparent)` }}></div>
+      <div className="poster-gradient-overlay"></div>
+
+      {/* Geometric Grid Pattern */}
+      <div className="poster-geometric-grid"></div>
 
       {/* Grid Pattern */}
-      <div className="poster-grid-overlay" style={{ backgroundImage: `radial-gradient(${slide.primaryColor} 0.8px, transparent 0.8px)` }}></div>
+      <div className="poster-grid-overlay"></div>
 
       {/* Glow Elements */}
       <div className="poster-glow-accent"></div>
+      
+      {/* Corner Accent */}
+      <div className="poster-corner-accent"></div>
 
       {/* Content Container */}
       <div className="poster-content">
-        {slide.elements.map((el) => {
+        {slide.elements.map((el, idx) => {
           if (el.type === 'logo') {
             return (
               <div key={el.id} className="poster-logo-container">
@@ -54,10 +67,10 @@ export const SlideCanvas: React.FC<SlideCanvasProps> = ({ slide, isActive }) => 
                     <img src={selectedLogo} alt="Logo" className="poster-logo-image" />
                   ) : (
                     <div className="poster-logo-placeholder">
-                      <span className="poster-logo-text">TS</span>
+                      <span className="poster-logo-text">AT</span>
                     </div>
                   )}
-                  {!selectedLogo && <span className="poster-brand-label">Tech Studio</span>}
+                  {!selectedLogo && <span className="poster-brand-label">Al-Tajer Digital</span>}
                 </div>
                 <div className="poster-divider"></div>
               </div>
@@ -72,9 +85,12 @@ export const SlideCanvas: React.FC<SlideCanvasProps> = ({ slide, isActive }) => 
           }
           if (el.type === 'subtitle') {
             return (
-              <h2 key={el.id} className="poster-subtitle">
-                {el.content}
-              </h2>
+              <div key={el.id} className="poster-subtitle">
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+                <span>{el.content}</span>
+              </div>
             );
           }
           if (el.type === 'body') {
@@ -90,16 +106,19 @@ export const SlideCanvas: React.FC<SlideCanvasProps> = ({ slide, isActive }) => 
           if (el.type === 'footer') {
             return (
               <div key={el.id} className="poster-footer-section">
-                <div className="poster-footer-text-right">منصة المستثمر</div>
-                <div className="poster-footer-text-left">al_investor.com</div>
+                <div className="poster-footer-text-right">التاجر الرقمي</div>
+                <div className="poster-pagination">
+                  <div className="poster-pagination-dot active"></div>
+                  <div className="poster-pagination-dot"></div>
+                  <div className="poster-pagination-dot"></div>
+                </div>
+                <div className="poster-footer-text-left">al-tajer.com</div>
               </div>
             );
           }
           return null;
         })}
       </div>
-
-      <div className="poster-scan-line" style={{ backgroundColor: `${slide.primaryColor}33` }}></div>
     </div>
   );
 };

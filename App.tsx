@@ -5,22 +5,24 @@ import { generateCarouselContent, generateTechImage } from './services/geminiSer
 import { SlideCanvas } from './components/SlideCanvas';
 import { toPng } from 'html-to-image';
 
+// Al-Tajer Digital Default Theme - Modern Light
 const DEFAULT_THEME = {
-  bg: '#020617',
-  primary: '#22d3ee',
-  secondary: '#0ea5e9',
-  text: '#f8fafc'
+  bg: '#FFFFFF',
+  primary: '#2563EB',    // Electric Blue
+  secondary: '#3B82F6',  // Lighter Blue
+  text: '#0F172A'        // Charcoal Black
 };
 
+// Al-Tajer Digital Modern Themes
 const THEMES = [
-  { name: 'كحلي المستثمر', bg: '#020617', primary: '#0ea5e9', secondary: '#1e293b', text: '#f8fafc' },
-  { name: 'الأحمر الصيني', bg: '#450a0a', primary: '#ef4444', secondary: '#facc15', text: '#fef2f2' },
-  { name: 'سيان الابتكار', bg: '#020617', primary: '#22d3ee', secondary: '#083344', text: '#ecfeff' },
-  { name: 'فوشيا التحليل', bg: '#2e1065', primary: '#f472b6', secondary: '#701a75', text: '#fdf4ff' },
-  { name: 'برتقالي الحركة', bg: '#431407', primary: '#fb923c', secondary: '#7c2d12', text: '#fff7ed' },
-  { name: 'لايم النمو', bg: '#052e16', primary: '#a3e635', secondary: '#14532d', text: '#f7fee7' },
-  { name: 'بنفسجي العمق', bg: '#1e1b4b', primary: '#a78bfa', secondary: '#4c1d95', text: '#f5f3ff' },
-  { name: 'الوضع الداكن', bg: '#0f172a', primary: '#2dd4bf', secondary: '#1e293b', text: '#f8fafc' },
+  { name: 'الأبيض النقي', bg: '#FFFFFF', primary: '#2563EB', secondary: '#3B82F6', text: '#0F172A' },
+  { name: 'الرمادي الفاتح', bg: '#F8FAFC', primary: '#2563EB', secondary: '#60A5FA', text: '#0F172A' },
+  { name: 'الأزرق الملكي', bg: '#EFF6FF', primary: '#1D4ED8', secondary: '#3B82F6', text: '#1E293B' },
+  { name: 'النعناع المنعش', bg: '#F0FDF4', primary: '#059669', secondary: '#10B981', text: '#064E3B' },
+  { name: 'البنفسجي الهادئ', bg: '#F5F3FF', primary: '#7C3AED', secondary: '#8B5CF6', text: '#2E1065' },
+  { name: 'البرتقالي الدافئ', bg: '#FFFBEB', primary: '#EA580C', secondary: '#F97316', text: '#7C2D12' },
+  { name: 'الروز الكريمي', bg: '#FFF1F2', primary: '#DB2777', secondary: '#EC4899', text: '#831843' },
+  { name: 'الوضع الاحترافي', bg: '#F1F5F9', primary: '#0284C7', secondary: '#06B6D4', text: '#0F172A' },
 ];
 
 const LOGO_OPTIONS = [
@@ -40,7 +42,7 @@ const App: React.FC = () => {
 .poster-title { text-transform: uppercase; }`);
 
   const [carousel, setCarousel] = useState<Carousel>({
-    title: "مشروع جديد",
+    title: "Al-Tajer Digital Carousel",
     slides: [
       {
         id: '1',
@@ -51,9 +53,9 @@ const App: React.FC = () => {
         backgroundType: 'color',
         elements: [
           { id: 'l1', type: 'logo', content: '', style: {} },
-          { id: 't1', type: 'title', content: 'مستقبل الذكاء الاصطناعي', style: {} },
-          { id: 's1', type: 'subtitle', content: 'ثورة في عالم التصميم', style: {} },
-          { id: 'b1', type: 'body', content: 'اكتشف كيف يغير الذكاء الاصطناعي طريقة تفكيرنا في الإبداع الرقمي وصناعة المحتوى البصري المذهل.', style: {} },
+          { id: 't1', type: 'title', content: 'منصة التاجر الرقمي', style: {} },
+          { id: 's1', type: 'subtitle', content: 'حلول ذكية لأعمالك', style: {} },
+          { id: 'b1', type: 'body', content: 'اكتشف منصة التاجر الرقمي - وجهتك الأولى للحلول التقنية المبتكرة. نقدم أدوات متطورة تساعدك على تنمية أعمالك وتحقيق أهدافك التجارية بذكاء.', style: {} },
           { id: 'f1', type: 'footer', content: '', style: {} }
         ]
       }
@@ -193,11 +195,11 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="flex h-screen bg-slate-950 text-slate-100 overflow-hidden font-sans" dir="rtl">
-      <aside className="w-[420px] bg-[#0b1120] border-l border-slate-800 flex flex-col shadow-2xl z-20">
-        <div className="flex bg-slate-900/50 p-2 gap-2 border-b border-slate-800">
+    <div className="flex h-screen bg-[#F8FAFC] text-[#0F172A] overflow-hidden font-sans" dir="rtl">
+      <aside className="w-[420px] bg-white border-l border-slate-200 flex flex-col shadow-xl z-20">
+        <div className="flex bg-slate-50 p-2 gap-2 border-b border-slate-200">
           {[
-            { id: 'ai', label: 'الذكاء الالي', icon: 'M13 10V3L4 14h7v7l9-11h-7z' },
+            { id: 'ai', label: 'الذكاء الآلي', icon: 'M13 10V3L4 14h7v7l9-11h-7z' },
             { id: 'text', label: 'المحتوى', icon: 'M4 6h16M4 12h16M4 18h7' },
             { id: 'design', label: 'المظهر', icon: 'M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-3' },
             { id: 'custom', label: 'برمجة CSS', icon: 'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4' },
@@ -205,7 +207,7 @@ const App: React.FC = () => {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id as TabType)}
-              className={`flex-1 py-3 flex flex-col items-center gap-1 text-[10px] font-bold uppercase tracking-wider transition-all rounded-xl ${activeTab === tab.id ? 'bg-cyan-500/10 text-cyan-400 border border-cyan-500/20' : 'text-slate-500 hover:bg-slate-800/50'}`}
+              className={`flex-1 py-3 flex flex-col items-center gap-1 text-[10px] font-bold uppercase tracking-wider transition-all rounded-xl ${activeTab === tab.id ? 'bg-blue-500/10 text-blue-600 border border-blue-500/20' : 'text-slate-500 hover:bg-slate-100'}`}
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
                 <path strokeLinecap="round" strokeLinejoin="round" d={tab.icon} />
@@ -218,18 +220,18 @@ const App: React.FC = () => {
         <div className="flex-1 overflow-y-auto p-6 custom-scrollbar">
           {activeTab === 'ai' && (
             <div className="space-y-6">
-              <div className="bg-gradient-to-br from-slate-900 to-slate-800 p-6 rounded-2xl border border-slate-700 shadow-xl">
-                <h3 className="text-white font-bold text-base mb-4">توليد المحتوى الذكي</h3>
-                <textarea 
+              <div className="bg-gradient-to-br from-white to-slate-50 p-6 rounded-2xl border border-slate-200 shadow-lg">
+                <h3 className="text-slate-800 font-bold text-base mb-4">توليد المحتوى الذكي</h3>
+                <textarea
                   value={prompt}
                   onChange={(e) => setPrompt(e.target.value)}
-                  className="w-full bg-[#020617] border border-slate-700 rounded-xl p-4 text-sm focus:ring-2 focus:ring-cyan-500/50 outline-none h-32 mb-4 text-right"
+                  className="w-full bg-white border border-slate-200 rounded-xl p-4 text-sm focus:ring-2 focus:ring-blue-500/30 focus:border-blue-500 outline-none h-32 mb-4 text-right"
                   placeholder="اكتب موضوع الكاروسيل..."
                 />
-                <button 
+                <button
                   onClick={handleGenerate}
                   disabled={isGenerating}
-                  className={`w-full py-4 rounded-xl font-bold transition-all ${isGenerating ? 'bg-slate-800 text-slate-500' : 'bg-cyan-500 hover:bg-cyan-400 text-slate-950 shadow-lg shadow-cyan-500/20'}`}
+                  className={`w-full py-4 rounded-xl font-bold transition-all ${isGenerating ? 'bg-slate-200 text-slate-400' : 'bg-blue-600 hover:bg-blue-500 text-white shadow-lg shadow-blue-500/25'}`}
                 >
                   {isGenerating ? 'جاري التوليد...' : 'إنشاء السلسلة الآن'}
                 </button>
@@ -239,7 +241,7 @@ const App: React.FC = () => {
 
           {activeTab === 'text' && (
             <div className="space-y-6">
-              <h3 className="text-cyan-400 font-bold text-xs uppercase tracking-[0.2em] mb-4">تحرير الشريحة الحالية</h3>
+              <h3 className="text-blue-600 font-bold text-xs uppercase tracking-[0.2em] mb-4">تحرير الشريحة الحالية</h3>
               {carousel.slides[activeSlideIndex].elements.map(el => (
                 el.type !== 'logo' && el.type !== 'footer' && (
                   <div key={el.id} className="space-y-2 group">
@@ -248,7 +250,7 @@ const App: React.FC = () => {
                       type="text"
                       value={el.content}
                       onChange={(e) => updateElement(el.id, e.target.value)}
-                      className="w-full bg-slate-900 border border-slate-800 rounded-lg p-3 text-sm focus:border-cyan-500/50 outline-none transition-all"
+                      className="w-full bg-white border border-slate-200 rounded-lg p-3 text-sm focus:border-blue-500 outline-none transition-all"
                     />
                   </div>
                 )
@@ -260,20 +262,20 @@ const App: React.FC = () => {
             <div className="space-y-8 animate-in slide-in-from-right duration-300">
               {/* الثيمات الجاهزة */}
               <section>
-                <h3 className="text-slate-400 font-bold text-sm mb-4">الثيمات الجاهزة</h3>
+                <h3 className="text-slate-500 font-bold text-sm mb-4">الثيمات الجاهزة</h3>
                 <div className="grid grid-cols-2 gap-3">
                   {THEMES.map(theme => (
                     <button
                       key={theme.name}
                       onClick={() => applyTheme(theme)}
-                      className={`p-3 rounded-xl border transition-all text-right group ${carousel.slides[activeSlideIndex].backgroundColor === theme.bg && carousel.slides[activeSlideIndex].primaryColor === theme.primary ? 'border-cyan-500 bg-cyan-500/5' : 'border-slate-800 bg-slate-900/30 hover:border-slate-600'}`}
+                      className={`p-3 rounded-xl border transition-all text-right group ${carousel.slides[activeSlideIndex].backgroundColor === theme.bg && carousel.slides[activeSlideIndex].primaryColor === theme.primary ? 'border-blue-500 bg-blue-50' : 'border-slate-200 bg-white hover:border-slate-300'}`}
                     >
                       <div className="flex items-center gap-2 mb-2">
                         <div className="w-3 h-3 rounded-full" style={{ backgroundColor: theme.primary }}></div>
                         <div className="w-3 h-3 rounded-full" style={{ backgroundColor: theme.secondary }}></div>
-                        <span className="text-[11px] font-bold text-slate-300 flex-1 truncate">{theme.name}</span>
+                        <span className="text-[11px] font-bold text-slate-700 flex-1 truncate">{theme.name}</span>
                       </div>
-                      <div className="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
+                      <div className="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
                         <div className="h-full" style={{ width: '40%', backgroundColor: theme.primary }}></div>
                       </div>
                     </button>
@@ -281,11 +283,11 @@ const App: React.FC = () => {
                 </div>
               </section>
 
-              <div className="h-px bg-slate-800"></div>
+              <div className="h-px bg-slate-200"></div>
 
               {/* تخصيص الألوان */}
               <section>
-                <h3 className="text-slate-400 font-bold text-sm mb-4">تخصيص الألوان</h3>
+                <h3 className="text-slate-500 font-bold text-sm mb-4">تخصيص الألوان</h3>
                 <div className="grid grid-cols-2 gap-4">
                   {[
                     { label: 'الأساسي', key: 'primaryColor' },
@@ -296,15 +298,15 @@ const App: React.FC = () => {
                     <div key={item.key} className="space-y-2">
                       <label className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">{item.label}</label>
                       <div className="relative group">
-                        <input 
-                          type="color" 
+                        <input
+                          type="color"
                           value={(carousel.slides[activeSlideIndex] as any)[item.key]}
                           onChange={(e) => updateColor(item.key as any, e.target.value)}
                           className="absolute inset-0 opacity-0 w-full h-full cursor-pointer"
                         />
-                        <div className="flex items-center gap-2 bg-slate-900 border border-slate-800 p-2 rounded-lg group-hover:border-slate-600 transition-all">
+                        <div className="flex items-center gap-2 bg-white border border-slate-200 p-2 rounded-lg group-hover:border-slate-300 transition-all shadow-sm">
                            <div className="w-8 h-4 rounded" style={{ backgroundColor: (carousel.slides[activeSlideIndex] as any)[item.key] }}></div>
-                           <span className="text-[10px] font-mono text-slate-400 uppercase">{(carousel.slides[activeSlideIndex] as any)[item.key]}</span>
+                           <span className="text-[10px] font-mono text-slate-600 uppercase">{(carousel.slides[activeSlideIndex] as any)[item.key]}</span>
                         </div>
                       </div>
                     </div>
@@ -312,36 +314,36 @@ const App: React.FC = () => {
                 </div>
               </section>
 
-              <div className="h-px bg-slate-800"></div>
+              <div className="h-px bg-slate-200"></div>
 
               {/* اختيار الشعار */}
               <section className="space-y-4">
-                <h3 className="text-slate-400 font-bold text-sm">اختيار الشعار</h3>
-                
+                <h3 className="text-slate-500 font-bold text-sm">اختيار الشعار</h3>
+
                 {/* شبكة اختيار الشعار */}
                 <div className="grid grid-cols-4 gap-3">
                   {LOGO_OPTIONS.map((logo) => {
                     const currentLogoIndex = carousel.slides[activeSlideIndex]?.logoIndex ?? 0;
                     const isSelected = currentLogoIndex === logo.id;
-                    
+
                     return (
                       <button
                         key={logo.id}
                         onClick={() => updateLogo(logo.id)}
                         className={`relative aspect-square rounded-xl border-2 overflow-hidden transition-all group ${
-                          isSelected 
-                            ? 'border-cyan-500 ring-2 ring-cyan-500/30' 
-                            : 'border-slate-700 hover:border-slate-500'
+                          isSelected
+                            ? 'border-blue-500 ring-2 ring-blue-500/20'
+                            : 'border-slate-200 hover:border-slate-300'
                         }`}
                       >
-                        <img 
-                          src={logo.path} 
+                        <img
+                          src={logo.path}
                           alt={logo.name}
-                          className="w-full h-full object-contain bg-slate-900 p-2"
+                          className="w-full h-full object-contain bg-white p-2"
                         />
                         {isSelected && (
-                          <div className="absolute inset-0 bg-cyan-500/20 flex items-center justify-center">
-                            <svg className="w-6 h-6 text-cyan-400" fill="currentColor" viewBox="0 0 20 20">
+                          <div className="absolute inset-0 bg-blue-500/10 flex items-center justify-center">
+                            <svg className="w-6 h-6 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
                               <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                             </svg>
                           </div>
@@ -354,7 +356,7 @@ const App: React.FC = () => {
                 {/* زر إزالة الشعار */}
                 <button
                   onClick={removeLogo}
-                  className="w-full py-3 bg-red-500/10 border border-red-500/20 text-red-400 rounded-xl text-xs font-bold hover:bg-red-500/20 transition-all flex items-center justify-center gap-2"
+                  className="w-full py-3 bg-red-50 border border-red-200 text-red-600 rounded-xl text-xs font-bold hover:bg-red-100 transition-all flex items-center justify-center gap-2"
                 >
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
@@ -365,21 +367,21 @@ const App: React.FC = () => {
                 {/* حالة الشعار الحالي */}
                 <div className="text-center">
                   <p className="text-[10px] text-slate-500">
-                    {carousel.slides[activeSlideIndex]?.logoIndex === -1 
-                      ? 'لا يوجد شعار محدد' 
+                    {carousel.slides[activeSlideIndex]?.logoIndex === -1
+                      ? 'لا يوجد شعار محدد'
                       : `الشعار المحدد: ${LOGO_OPTIONS[carousel.slides[activeSlideIndex]?.logoIndex ?? 0]?.name}`
                     }
                   </p>
                 </div>
               </section>
 
-              <div className="h-px bg-slate-800"></div>
+              <div className="h-px bg-slate-200"></div>
 
               {/* الوسائط */}
               <section className="space-y-4">
-                <h3 className="text-slate-400 font-bold text-sm">الوسائط الأخرى</h3>
+                <h3 className="text-slate-500 font-bold text-sm">الوسائط الأخرى</h3>
                 <div className="flex gap-2">
-                  <button onClick={handleGenerateImage} className="flex-1 py-3 bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 rounded-xl text-xs font-bold hover:bg-cyan-500/20 transition-all">خلفية ذكية</button>
+                  <button onClick={handleGenerateImage} className="flex-1 py-3 bg-blue-50 border border-blue-200 text-blue-600 rounded-xl text-xs font-bold hover:bg-blue-100 transition-all">خلفية ذكية</button>
                 </div>
               </section>
             </div>
@@ -387,11 +389,11 @@ const App: React.FC = () => {
 
           {activeTab === 'custom' && (
             <div className="space-y-6">
-              <h3 className="text-cyan-400 font-bold text-xs uppercase mb-4">CSS مخصص</h3>
-              <textarea 
+              <h3 className="text-blue-600 font-bold text-xs uppercase mb-4">CSS مخصص</h3>
+              <textarea
                 value={customCss}
                 onChange={(e) => setCustomCss(e.target.value)}
-                className="w-full bg-[#020617] p-5 text-xs font-mono text-cyan-300 outline-none h-80 rounded-xl border border-slate-800"
+                className="w-full bg-white p-5 text-xs font-mono text-slate-700 outline-none h-80 rounded-xl border border-slate-200 shadow-sm"
                 dir="ltr"
               />
             </div>
@@ -399,36 +401,36 @@ const App: React.FC = () => {
         </div>
       </aside>
 
-      <main className="flex-1 relative flex flex-col items-center justify-center bg-[#020617] p-8 overflow-hidden">
+      <main className="flex-1 relative flex flex-col items-center justify-center bg-gradient-to-br from-[#F8FAFC] to-[#E2E8F0] p-8 overflow-hidden">
         <div className="flex items-center gap-12 w-full justify-center py-10">
           <div className="relative group">
             <div ref={exportRef}>
               <SlideCanvas slide={carousel.slides[activeSlideIndex]} isActive={true} />
             </div>
             <div className="absolute top-1/2 -left-16 -translate-y-1/2 flex flex-col gap-4 opacity-0 group-hover:opacity-100 transition-all duration-500">
-               <button onClick={() => setActiveSlideIndex(prev => Math.max(0, prev - 1))} className="p-3 bg-slate-900 border border-slate-800 rounded-full hover:bg-cyan-500 hover:text-slate-950 shadow-xl"><svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7" /></svg></button>
+               <button onClick={() => setActiveSlideIndex(prev => Math.max(0, prev - 1))} className="p-3 bg-white border border-slate-200 rounded-full hover:bg-blue-50 hover:text-blue-600 shadow-lg"><svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7" /></svg></button>
             </div>
             <div className="absolute top-1/2 -right-16 -translate-y-1/2 flex flex-col gap-4 opacity-0 group-hover:opacity-100 transition-all duration-500">
-               <button onClick={() => setActiveSlideIndex(prev => Math.min(carousel.slides.length - 1, prev + 1))} className="p-3 bg-slate-900 border border-slate-800 rounded-full hover:bg-cyan-500 hover:text-slate-950 shadow-xl"><svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7" /></svg></button>
+               <button onClick={() => setActiveSlideIndex(prev => Math.min(carousel.slides.length - 1, prev + 1))} className="p-3 bg-white border border-slate-200 rounded-full hover:bg-blue-50 hover:text-blue-600 shadow-lg"><svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7" /></svg></button>
             </div>
           </div>
         </div>
 
-        <div className="mt-8 flex gap-4 p-4 bg-slate-900/40 backdrop-blur-md rounded-2xl border border-slate-800/50">
+        <div className="mt-8 flex gap-4 p-4 bg-white/80 backdrop-blur-md rounded-2xl border border-slate-200 shadow-lg">
           {carousel.slides.map((_, idx) => (
-            <button key={idx} onClick={() => setActiveSlideIndex(idx)} className={`w-12 h-1 rounded-full transition-all duration-500 ${activeSlideIndex === idx ? 'bg-cyan-400 w-16' : 'bg-slate-700'}`} />
+            <button key={idx} onClick={() => setActiveSlideIndex(idx)} className={`w-12 h-1 rounded-full transition-all duration-500 ${activeSlideIndex === idx ? 'bg-blue-600 w-16' : 'bg-slate-300'}`} />
           ))}
         </div>
 
         <div className="absolute bottom-12 left-1/2 -translate-x-1/2">
-          <button 
+          <button
             onClick={handleExport}
             disabled={isExporting}
-            className={`bg-white text-slate-950 px-12 py-4 rounded-2xl font-black text-xs uppercase tracking-widest shadow-xl hover:scale-105 transition-all flex items-center gap-2 ${isExporting ? 'opacity-50 cursor-not-allowed' : ''}`}
+            className={`bg-blue-600 text-white px-12 py-4 rounded-2xl font-black text-xs uppercase tracking-widest shadow-xl shadow-blue-500/30 hover:scale-105 hover:bg-blue-500 transition-all flex items-center gap-2 ${isExporting ? 'opacity-50 cursor-not-allowed' : ''}`}
           >
             {isExporting ? (
               <>
-                <svg className="animate-spin h-4 w-4 text-slate-950" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <svg className="animate-spin h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                   <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                   <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                 </svg>
