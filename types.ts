@@ -16,6 +16,7 @@ export interface Slide {
   secondaryColor: string; // اللون الثانوي (الأزرار، الأشرطة)
   textColor: string;      // لون النصوص الرئيسية
   backgroundImage?: string;
+  bodyImage?: string;
   elements: SlideElement[];
   logoIndex?: number; // Index of selected logo (0-3), -1 for no logo
 }

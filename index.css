@@ -1,398 +1,276 @@
-/* Al-Tajer Digital - Modern Carousel Studio */
+/* Al-Tajer Digital - High-End Tech Aesthetic */
+
+:root {
+  --primary-color: #2563EB;
+  --secondary-color: #0EA5E9;
+  --accent-color: #F43F5E;
+  --bg-color: #FFFFFF;
+  --text-color: #0F172A;
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.8);
+}
 
 /* ===== Base Styles ===== */
 body {
-  font-family: 'Tajawal', 'Cairo', sans-serif;
-  background-color: #F8FAFC;
+  font-family: 'IBM Plex Sans Arabic', sans-serif;
+  background-color: #F1F5F9;
   color: #0F172A;
   margin: 0;
   -webkit-font-smoothing: antialiased;
 }
 
-.dir-ltr {
-  direction: ltr !important;
+/* ===== Futuristic Background Patterns ===== */
+
+/* Modern Scanline Effect */
+.poster-scan-line {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    transparent 50%,
+    rgba(37, 99, 235, 0.02) 50%,
+    rgba(37, 99, 235, 0.02)
+  );
+  background-size: 100% 4px;
+  pointer-events: none;
+  z-index: 5;
 }
 
-.font-mono {
-  font-family: 'JetBrains Mono', monospace;
+/* High-Tech Geometric Mesh */
+.poster-geometric-grid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: 2;
+  background-image: 
+    linear-gradient(rgba(37, 99, 235, 0.3) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(37, 99, 235, 0.3) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: radial-gradient(circle at 100% 0%, black, transparent 80%);
 }
 
-/* ===== Scrollbar Customization ===== */
-.custom-scrollbar::-webkit-scrollbar {
-  width: 5px;
+/* Abstract Tech Shape */
+.poster-tech-accent {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, var(--secondary-color) 0%, transparent 70%);
+  opacity: 0.08;
+  filter: blur(40px);
+  pointer-events: none;
 }
 
-.custom-scrollbar::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #CBD5E1;
-  border-radius: 20px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #94A3B8;
-}
-
-/* ===== Modern Glow Effect ===== */
-.tech-glow {
-  box-shadow: 0 0 30px rgba(37, 99, 235, 0.15);
-}
-
-/* ===== Poster Components - Al-Tajer Digital Style ===== */
-
-/* Root Container - Modern Card Style */
+/* ===== Poster Root - Master Container ===== */
 .poster-root {
   position: relative;
   width: 450px;
   height: 560px;
-  border-radius: 32px;
+  border-radius: 0;
   overflow: hidden;
+  background: #FFFFFF;
   box-shadow: 
-    0 4px 6px -1px rgba(0, 0, 0, 0.05),
-    0 10px 40px -10px rgba(0, 0, 0, 0.1),
-    0 0 0 1px rgba(0, 0, 0, 0.05);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  background-size: cover;
-  background-position: center;
+    0 20px 50px -12px rgba(15, 23, 42, 0.12),
+    0 0 0 1px rgba(15, 23, 42, 0.04);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .poster-root.active {
+  transform: translateY(-5px);
   box-shadow: 
-    0 10px 40px -10px rgba(37, 99, 235, 0.2),
-    0 0 0 2px rgba(37, 99, 235, 0.1);
+    0 30px 60px -12px rgba(37, 99, 235, 0.15),
+    0 0 0 1px rgba(37, 99, 235, 0.1);
 }
 
-.poster-root.inactive {
-  opacity: 0.5;
-  filter: grayscale(20%);
-  transform: scale(0.95);
-}
-
-/* Soft Gradient Overlay */
-.poster-gradient-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    transparent 0%,
-    transparent 60%,
-    rgba(248, 250, 252, 0.8) 100%
-  );
-  pointer-events: none;
-  z-index: 1;
-}
-
-/* Subtle Dot Pattern */
-.poster-grid-overlay {
-  position: absolute;
-  inset: 0;
-  opacity: 0.04;
-  pointer-events: none;
-  z-index: 2;
-  background-image: radial-gradient(var(--primary-color) 1px, transparent 1px);
-  background-size: 28px 28px;
-}
-
-/* Geometric Grid Pattern - Electric Blue */
-.poster-geometric-grid {
-  position: absolute;
-  inset: 0;
-  opacity: 0.18;
-  pointer-events: none;
-  z-index: 2;
-  background-image: 
-    linear-gradient(var(--grid-color) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
-  background-size: 40px 40px;
-  border-radius: 32px;
-}
-
-/* Soft Glow Accent - Modern Blob */
-.poster-glow-accent {
-  position: absolute;
-  top: -60px;
-  left: -60px;
-  width: 280px;
-  height: 280px;
-  border-radius: 50%;
-  filter: blur(100px);
-  pointer-events: none;
-  opacity: 0.15;
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-}
-
-/* Decorative Corner Accent */
-.poster-corner-accent {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 120px;
-  height: 120px;
-  background: linear-gradient(135deg, var(--primary-color) 0%, transparent 70%);
-  opacity: 0.1;
-  border-radius: 0 32px 0 100%;
-  pointer-events: none;
-  z-index: 1;
-}
-
-/* Content Container - Airy Layout */
+/* Content Layout */
 .poster-content {
   position: relative;
   z-index: 10;
-  padding: 2rem 2.25rem;
+  padding: 2.5rem;
   display: flex;
   flex-direction: column;
   height: 100%;
-  gap: 1.5rem;
 }
 
-/* Logo Container - Modern Header */
-.poster-logo-container {
+/* ===== Header & Branding ===== */
+.poster-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 0.5rem;
+  margin-bottom: 2rem;
 }
 
-.poster-logo-image {
-  max-width: 70px;
-  max-height: 45px;
-  object-fit: contain;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08));
+.brand-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0.85rem;
+  background: rgba(37, 99, 235, 0.05);
+  border-radius: 0;
+  border: 1px solid rgba(37, 99, 235, 0.1);
 }
 
-.poster-logo-placeholder {
-  width: 44px;
-  height: 44px;
-  border-radius: 14px;
+.brand-logo-circle {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  border-radius: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
-}
-
-.poster-logo-text {
-  font-size: 13px;
+  color: white;
   font-weight: 800;
-  text-transform: uppercase;
-  color: #FFFFFF;
+  font-size: 14px;
 }
 
-.poster-brand-label {
-  font-size: 9px;
+.brand-name {
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.25em;
+  letter-spacing: 0.1em;
+  color: #475569;
   text-transform: uppercase;
-  color: #94A3B8;
 }
 
-/* Subtle Divider */
-.poster-divider {
-  flex: 1;
-  height: 1px;
-  margin: 0 1rem;
-  background: linear-gradient(90deg, transparent, rgba(15, 23, 42, 0.1), transparent);
-}
-
-/* Title - Bold Two-Tone Style */
+/* ===== Typography ===== */
 .poster-title {
-  font-size: 38px;
+  font-size: 36px;
   font-weight: 800;
-  margin-bottom: 0.25rem;
-  line-height: 1.15;
-  letter-spacing: -0.03em;
   color: var(--text-color);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
 }
 
-/* Subtitle - Pill Tag Style */
-.poster-subtitle {
+.poster-subtitle-tag {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.5rem 1rem;
   font-size: 13px;
-  font-weight: 700;
-  border-radius: 9999px;
-  background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(37, 99, 235, 0.12));
+  font-weight: 600;
   color: var(--primary-color);
+  background: rgba(37, 99, 235, 0.08);
+  padding: 0.4rem 1rem;
+  border-radius: 0;
   width: fit-content;
-  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.1);
+  margin-bottom: 1.5rem;
 }
 
-/* Body Content - Card Style */
+/* ===== The Core Element: Body Container ===== */
+/* Re-imagined as a floating "Tech Module" */
 .poster-body-container {
+  position: relative;
   flex: 1;
-  margin-top: 0.5rem;
-  padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(10px);
-  border-radius: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 0;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  padding: 1.75rem;
   box-shadow: 
-    0 4px 12px rgba(0, 0, 0, 0.04),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    0 10px 30px -10px rgba(15, 23, 42, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  transition: all 0.4s ease;
 }
 
-/* Modern Accent Bar - Gradient Pill */
-.poster-accent-bar {
-  width: 48px;
-  height: 5px;
-  border-radius: 9999px;
-  margin-bottom: 1.25rem;
-  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
+/* Vertical Accent Bar */
+.body-accent-line {
+  position: absolute;
+  top: 1.75rem;
+  right: 0;
+  width: 3px;
+  height: 24px;
+  background: var(--primary-color);
+  border-radius: 0;
 }
 
 .poster-body {
-  font-size: 16px;
-  line-height: 1.85;
+  font-size: 17px;
+  line-height: 1.8;
+  color: #334155;
   font-weight: 400;
-  color: #4B5563;
-  max-width: 100%;
 }
 
-/* Highlight Tags - Mint/Purple/Orange */
-.poster-highlight-tag {
-  display: inline-block;
-  padding: 0.35rem 0.85rem;
-  border-radius: 9999px;
-  font-size: 12px;
-  font-weight: 700;
-  margin-left: 0.5rem;
-  margin-bottom: 0.5rem;
+.poster-body-container.has-image {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
-.poster-highlight-tag.mint {
-  background: linear-gradient(135deg, #D1FAE5, #A7F3D0);
-  color: #065F46;
-}
-
-.poster-highlight-tag.purple {
-  background: linear-gradient(135deg, #EDE9FE, #DDD6FE);
-  color: #5B21B6;
-}
-
-.poster-highlight-tag.orange {
-  background: linear-gradient(135deg, #FED7AA, #FDBA74);
-  color: #C2410C;
-}
-
-/* Button Section - Modern Pill Button */
-.poster-button-section {
+/* Floating Elements Decoration inside body */
+.body-decoration {
   margin-top: auto;
-  padding-top: 1.25rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-top: 1px solid rgba(15, 23, 42, 0.08);
-}
-
-.poster-button {
-  padding: 0.75rem 1.75rem;
-  border-radius: 9999px;
-  font-size: 11px;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-  color: #FFFFFF;
-  box-shadow: 
-    0 4px 14px rgba(37, 99, 235, 0.35),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
-}
-
-.poster-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 
-    0 6px 20px rgba(37, 99, 235, 0.45),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
-}
-
-/* Footer Section - Minimalist */
-.poster-footer-section {
-  margin-top: auto;
-  padding-top: 1rem;
-  border-top: 1px solid rgba(15, 23, 42, 0.06);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 24px;
-  min-height: 24px;
-}
-
-.poster-footer-text-right {
-  font-size: 11px;
-  font-weight: 700;
-  color: #64748B;
-  letter-spacing: 0.05em;
-  white-space: nowrap;
-}
-
-.poster-footer-text-left {
-  font-size: 10px;
-  font-weight: 600;
-  color: #94A3B8;
-  letter-spacing: 0.1em;
-  font-family: 'JetBrains Mono', monospace;
-  white-space: nowrap;
-}
-
-/* Pagination Dots - Modern */
-.poster-pagination {
   display: flex;
   gap: 0.5rem;
-  opacity: 0.4;
 }
 
-.poster-pagination-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: var(--primary-color);
+.deco-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 0;
+  background: var(--primary-color);
+  opacity: 0.2;
+}
+
+/* ===== Footer Section ===== */
+.poster-footer {
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-link {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: #94A3B8;
+  font-weight: 500;
+}
+
+.pagination-container {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.page-dot {
+  width: 20px;
+  height: 4px;
+  background: #E2E8F0;
+  border-radius: 0;
   transition: all 0.3s ease;
 }
 
-.poster-pagination-dot.active {
-  opacity: 1;
-  transform: scale(1.2);
+.page-dot.active {
+  background: var(--primary-color);
+  width: 32px;
 }
 
-/* ===== Custom CSS Editor ===== */
-.custom-css-editor {
-  width: 100%;
-  background-color: #FFFFFF;
-  padding: 1.25rem;
-  font-size: 0.75rem;
-  font-family: 'JetBrains Mono', monospace;
-  color: #475569;
-  outline: none;
-  height: 20rem;
-  border: 1px solid #E2E8F0;
-  border-radius: 12px;
-  direction: ltr;
-}
-
-/* ===== Utility Classes ===== */
-.bg-gradient-subtle {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(248, 250, 252, 0.95));
-}
-
-.shadow-soft {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-}
-
-.shadow-medium {
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-}
-
+/* ===== Utilities ===== */
 .text-gradient {
   background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+.custom-scrollbar::-webkit-scrollbar { width: 6px; }
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 0;
+}
+
+/* Editor Styles */
+.custom-css-editor {
+  width: 100%;
+  background: #0F172A;
+  color: #E2E8F0;
+  padding: 1.5rem;
+  font-family: 'JetBrains Mono', monospace;
+  border-radius: 0;
+  font-size: 13px;
+  line-height: 1.6;
 }
